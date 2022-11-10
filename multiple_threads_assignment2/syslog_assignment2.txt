@@ -1,4 +1,4 @@
-Nov  9 20:56:21 Linux JetNano 4.9.140-tegra #1 SMP PREEMPT Tue Oct 27 21:02:37 PDT 2020 aarch64 aarch64 aarch64 GNU/Linux
+Nov  9 20:56:21 JetNano pthread: [COURSE:1][ASSIGNMENT:2]: Linux JetNano 4.9.140-tegra #1 SMP PREEMPT Tue Oct 27 21:02:37 PDT 2020 aarch64 aarch64 aarch64 GNU/Linux
 Nov  9 20:56:21 JetNano pthread: [COURSE:1][ASSIGNMENT:2]: Thread idx=1, sum[1...1]=1
 Nov  9 20:56:21 JetNano pthread: [COURSE:1][ASSIGNMENT:2]: Thread idx=5, sum[1...5]=15
 Nov  9 20:56:21 JetNano pthread: [COURSE:1][ASSIGNMENT:2]: Thread idx=6, sum[1...6]=21
