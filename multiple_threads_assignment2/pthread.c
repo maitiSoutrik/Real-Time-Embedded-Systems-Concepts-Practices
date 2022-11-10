@@ -21,13 +21,14 @@ threadParams_t threadParams[COUNT];
 // Unsafe global
 int gsum=0;
 
-void *incThread(void *threadp)
+void *counterThread(void *threadp)
 {
     threadParams_t *threadParams = (threadParams_t *)threadp;
-
+    int gsum=0;
+    
     for(int i = 0; i <= threadParams->threadIdx; i++)
     {
-        gsum += 1;
+        gsum += i;
     }
 
 
@@ -37,37 +38,22 @@ void *incThread(void *threadp)
 
 }
 
-
-// void *decThread(void *threadp)
-// {
-//     int i;
-//     threadParams_t *threadParams = (threadParams_t *)threadp;
-
-//     for(i=0; i<COUNT; i++)
-//     {
-//         gsum=gsum-i;
-//         printf("Decrement thread idx=%d, gsum=%d\n", threadParams->threadIdx, gsum);
-//     }
-// }
-
-
-
-
 int main (int argc, char *argv[])
 {
-//    int rc;
+    system("uname -a | tee /var/log/syslog");  
 
-    for(int i = 0; i < COUNT; i++)
+
+    for(int i = 1; i <= COUNT; i++)
     {
         threadParams[i].threadIdx=i;
         pthread_create(&threads[i],   // pointer to thread descriptor
                         (void *)0,     // use default attributes
-                        incThread, // thread function entry point
+                        counterThread, // thread function entry point
                         (void *)&(threadParams[i]) // parameters to pass in
                         );
     }
 
-   for(int i=0; i<COUNT; i++)
+   for(int i=1; i<=COUNT; i++)
    {
         pthread_join(threads[i], NULL);
    }
