@@ -19,21 +19,21 @@ threadParams_t threadParams[COUNT];
 
 
 // Unsafe global
-int gsum=0;
+// int gsum=0;
 
 void *counterThread(void *threadp)
 {
     threadParams_t *threadParams = (threadParams_t *)threadp;
     int gsum=0;
     
-    for(int i = 0; i <= threadParams->threadIdx; i++)
+    for(int i = 1; i <= threadParams->threadIdx; i++)
     {
         gsum += i;
     }
 
 
     // printf("Increment thread idx=%d, gsum=%d\n", threadParams->threadIdx, gsum);
-    syslog(LOG_INFO, "[COURSE:1][ASSIGNMENT:2]: Thread idx=%d, sum[1...%d]=%d\n",
+    syslog(LOG_INFO, "[COURSE:1][ASSIGNMENT:2]:Thread idx=%d, sum[1...%d]=%d\n",
             threadParams->threadIdx, threadParams->threadIdx, gsum);
 
 }
